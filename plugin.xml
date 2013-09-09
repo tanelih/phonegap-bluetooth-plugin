@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="com.phonegap.plugins.bluetooth"
+	version="0.9">
+
+	<name>Bluetooth</name>
+
+	<description>
+		Allows access to device bluetooth-API via JavaScript.
+	</description>
+
+	<engines>
+		<engine name="cordova" version=">=2.6.0" />
+	</engines>
+
+	<platform name="android">
+		
+		<!-- new versions -->
+		<config-file target="res/xml/config.xml" parent="/widget">
+			<feature name="Bluetooth">
+				<param name="android-package" value="org.apache.cordova.bluetooth.BluetoothPlugin" />
+			</feature>
+		</config-file>
+		
+		<!-- below 2.8.0 -->
+		<config-file target="res/xml/config.xml" parent="plugins">
+			<plugin name="Bluetooth" value="org.apache.cordova.bluetooth.BluetoothPlugin" /> 
+		</config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+    		<uses-permission android:name="android.permission.BLUETOOTH" />
+    		<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+		</config-file>	
+		
+		<js-module src="www/bluetooth.js" name="bluetooth">
+			<clobbers target="bluetooth" />
+		</js-module>
+
+		<source-file src="src/android/BluetoothPlugin.java" target-dir="src/org/apache/cordova/bluetooth" />
+		<source-file src="src/android/BluetoothWrapper.java" target-dir="src/org/apache/cordova/bluetooth" />
+		<source-file src="src/android/BluetoothError.java" target-dir="src/org/apache/cordova/bluetooth" />
+		<source-file src="src/android/Pair.java" target-dir="src/org/apache/cordova/bluetooth" />
+
+	</platform>
+
+</plugin>

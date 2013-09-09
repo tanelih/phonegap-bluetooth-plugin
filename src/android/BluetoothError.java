@@ -1,4 +1,4 @@
-package fi.jamk.jokamies.bluetooth;
+package org.apache.cordova.bluetooth;
 
 /**
  * Container class for different error codes for Bluetooth.

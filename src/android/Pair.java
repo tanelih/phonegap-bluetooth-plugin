@@ -1,4 +1,4 @@
-package fi.jamk.jokamies.bluetooth;
+package org.apache.cordova.bluetooth;
 
 
 /**
