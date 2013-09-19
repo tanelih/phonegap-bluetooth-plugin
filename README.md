@@ -9,10 +9,33 @@ Installation
 ------------
 Check out PhoneGap CLI [docs](http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface) before starting out.
 
-To install this plugin, please use [Plugman](https://github.com/apache/cordova-plugman).
+To install this plugin on 3.0.0, please use [Plugman](https://github.com/apache/cordova-plugman).
 
 ```
 plugman install --platform android --project yourprojectdir/platforms/android --plugin https://github.com/tanelih/phonegap-bluetooth-plugin.git
+```
+
+Installation below 3.0.0 version should be done manually. Copy the contents of `manual/<platform>/src` and `manual/www` to their respective locations on your project. Remember to add plugin specification to `config.xml` and permissions to `AndroidManifest.xml`.
+
+In `config.xml`...
+```
+<plugin name="Bluetooth" value="org.apache.cordova.bluetooth.BluetoothPlugin" />
+```
+
+In `AndroidManifest.xml`...
+```
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+```
+
+Usage
+-----
+
+If you installed the plugin with plugman in 3.0.0 environment, the plugin is accessible from `window.bluetooth`.
+
+If you installed the plugin manually, you need to add the `bluetooth.js` script to your app. Then require the plugin after the `deviceready` event.
+```
+window.bluetooth = cordova.require("cordova/plugin/bluetooth");
 ```
 
 License
