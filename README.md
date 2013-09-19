@@ -1,6 +1,6 @@
 PhoneGap BluetoothPlugin
 ========================
-Bluetooth plugin for PhoneGap version 2.6.0 and up (Android).
+Bluetooth plugin for PhoneGap (Android). Tested on versions 2.6.0 and 3.0.0.
 
 This plugin was created as part of an EU funded (Rural Development Programme for Mainland Finland 2007-2013) 
 [project](http://www.jamk.fi/projektit/1180).
