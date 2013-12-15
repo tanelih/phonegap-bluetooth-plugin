@@ -378,9 +378,12 @@ Bluetooth.prototype.stopConnectionManager = function(onSuccess, onError)
  * @param  {Bluetooth~onError} 		onError 	Invoked if there was an error writing (for example there is no managed connection).
  * @param  {?} 						data 		The data to be written to the managed connection.
  */
-Bluetooth.prototype.write = function(onSuccess, onError, data)
+Bluetooth.prototype.write = function(onSuccess, onError, data, encoding, forceString)
 {
-	exec(onSuccess, onError, "Bluetooth", "write", [data]);
+    encoding = encoding || "UTF-8";
+    forceString = forceString || false;
+
+	exec(onSuccess, onError, "Bluetooth", "write", [data, encoding, forceString]);
 }
 
 var bluetooth 	= new Bluetooth();
