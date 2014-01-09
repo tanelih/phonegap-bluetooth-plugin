@@ -2,10 +2,7 @@ package org.apache.cordova.bluetooth;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.ByteArrayOutputStream;
 
 import java.lang.reflect.Method;
 
@@ -640,7 +637,7 @@ public class BluetoothWrapper
 	 * @param data The data you want to write. Will be converted into a byte array (byte[]).
 	 * @throws Exception If there is an error writing the data.
 	 */
-	public void write(Object data) throws Exception
+	public void write(byte[] bytes) throws Exception
 	{
 		try
 		{
@@ -654,33 +651,7 @@ public class BluetoothWrapper
 			}
 			else
 			{
-				ObjectOutput out 			= null;
-				ByteArrayOutputStream bos 	= new ByteArrayOutputStream();
-					
-				try 
-				{
-					out = new ObjectOutputStream(bos);   
-					out.writeObject(data);
-					byte[] bytes = bos.toByteArray();
-					
-					_connectionManager.write(bytes);
-				}
-				catch(Exception e)
-				{
-					throw e;
-				}
-				finally 
-				{
-					try 
-					{
-						out.close();
-						bos.close();
-					} 
-					catch(IOException e) 
-					{
-						Log.e(LOG_TAG, "Failed to close Object -> ByteArray sterams, " + e.getMessage());
-					}
-				}
+				_connectionManager.write(bytes);
 			}
 		}
 		catch(Exception e)

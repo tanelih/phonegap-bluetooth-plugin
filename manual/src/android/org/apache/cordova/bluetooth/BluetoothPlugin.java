@@ -1,6 +1,7 @@
 package org.apache.cordova.bluetooth;
 
 import java.util.ArrayList;
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 import org.apache.cordova.CordovaWebView;
@@ -23,7 +24,7 @@ import android.annotation.TargetApi;
 /**
  * Bluetooth interface for Cordova 2.6.0 (PhoneGap).
  * 
- * @version 	0.9
+ * @version 	0.9.1
  * @author  	Taneli Hartikainen
  */
 @TargetApi(Build.VERSION_CODES.GINGERBREAD)
@@ -681,20 +682,52 @@ public class BluetoothPlugin extends CordovaPlugin
 	 */
 	private void write(JSONArray args, CallbackContext callbackCtx)
 	{
-		try
+		Log.d(LOG_TAG, "write-method called");
+		
+		try 
 		{
+			Object data 		= args.get(0);
+			String encoding 	= args.getString(1);
+			boolean forceString = args.getBoolean(2); 
+			
+			byte[] defaultBytes = new byte[4];
+			ByteBuffer buffer = ByteBuffer.wrap(defaultBytes);
+			
+			if(forceString || data.getClass() == String.class)
+			{
+				String dataString = (String)data;
+				buffer = ByteBuffer.wrap(dataString.getBytes(encoding));
+			}
+			else if(data.getClass().equals(Integer.class))
+			{	
+				byte[] bytes = new byte[4];
+				buffer = ByteBuffer.wrap(bytes);
+				buffer.putInt((Integer)data);
+			}
+			else if(data.getClass().equals(Double.class))
+			{
+				byte[] bytes = new byte[8];
+				buffer = ByteBuffer.wrap(bytes);
+				buffer.putDouble((Double)data);
+			}
+			else
+			{
+				this.error(callbackCtx, "Unknown data-type", BluetoothError.ERR_UNKNOWN);
+				return;
+			}
+			
 			if(!_bluetooth.isConnected())
 			{
 				this.error(callbackCtx, "There is no managed connection to write to.", BluetoothError.ERR_CONNECTION_DOESNT_EXIST);
 			}
 			else
 			{
-				Object data = args.get(0);
-				_bluetooth.write(data);
+				buffer.rewind();
+				_bluetooth.write(buffer.array());
 				callbackCtx.success();
 			}
-		}
-		catch(Exception e)
+		} 
+		catch (Exception e) 
 		{
 			this.error(callbackCtx, e.getMessage(), BluetoothError.ERR_UNKNOWN);
 		}

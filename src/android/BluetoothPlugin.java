@@ -1,9 +1,6 @@
 package org.apache.cordova.bluetooth;
 
 import java.util.ArrayList;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
@@ -27,7 +24,7 @@ import android.annotation.TargetApi;
 /**
  * Bluetooth interface for Cordova 2.6.0 (PhoneGap).
  * 
- * @version 	0.9
+ * @version 	0.9.1
  * @author  	Taneli Hartikainen
  */
 @TargetApi(Build.VERSION_CODES.GINGERBREAD)

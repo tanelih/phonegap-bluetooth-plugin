@@ -1,4 +1,3 @@
-
 var exec = require('cordova/exec');
 
 /**
@@ -380,8 +379,8 @@ Bluetooth.prototype.stopConnectionManager = function(onSuccess, onError)
  */
 Bluetooth.prototype.write = function(onSuccess, onError, data, encoding, forceString)
 {
-    encoding = encoding || "UTF-8";
-    forceString = forceString || false;
+	encoding = encoding || "UTF-8";
+	forceString = forceString || false;
 
 	exec(onSuccess, onError, "Bluetooth", "write", [data, encoding, forceString]);
 }
