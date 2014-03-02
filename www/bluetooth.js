@@ -3,24 +3,33 @@ var exec = require('cordova/exec');
 /**
  * Create a new instance of Bluetooth(Plugin).
  * 
- * @class 		Bluetooth
- * @classdesc	BluetoothPlugin for cordova 2.6.0 (PhoneGap).
+ * @class       Bluetooth
+ * @classdesc   BluetoothPlugin for cordova 3.0.0+ (PhoneGap).
  */
 var Bluetooth = function() 
 {
-	this.platforms = [ "android" ];
+    this.platforms = [ "android" ];
 };
 
 /**
- * Check if the API is supported on this platform.
+ * Check if the API is supported on this platform. Requires the 
+ * cordova-plugin-device to function on PhoneGap 3.0.0 onwards.
  *
  * @memberOf Bluetooth
  * 
  * @returns {boolean}
  */
 Bluetooth.prototype.isSupported = function() 
-{
-	return this.platforms.indexOf(device.platform.toLowerCase()) > -1;
+{   
+    if(window.device)
+    {
+        var platform = window.device.platform;
+        if(platform !== undefined && platform !== null)
+        {
+            return (this.platforms.indexOf(platform.toLowerCase()) >= 0);
+        }
+    }
+    return false;
 }
 
 /**
@@ -35,9 +44,9 @@ Bluetooth.prototype.isSupported = function()
  * 
  * @callback  Bluetooth~onError
  * 
- * @param  {object} 	error 			The error object that contains information on what's what.
- * @param  {number} 	error.code 		The error code.
- * @param  {string} 	error.message 	The error message.
+ * @param  {object}     error           The error object that contains information on what's what.
+ * @param  {number}     error.code      The error code.
+ * @param  {string}     error.message   The error message.
  */
 
 /**
@@ -54,12 +63,12 @@ Bluetooth.prototype.isSupported = function()
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onResult} 	onSuccess 	Callback on successful execution.
- * @param  {Bluetooth~onError} 		onError 	Callback on failed execution.
+ * @param  {Bluetooth~onResult}     onSuccess   Callback on successful execution.
+ * @param  {Bluetooth~onError}      onError     Callback on failed execution.
  */
 Bluetooth.prototype.isEnabled = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "isEnabled", []);
+    exec(onSuccess, onError, "Bluetooth", "isEnabled", []);
 }
 
 /**
@@ -67,8 +76,8 @@ Bluetooth.prototype.isEnabled = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess 	Callback on successful execution.
- * @param  {Bluetooth~onError} 		onError 	Callback on failed execution.
+ * @param  {Bluetooth~onSuccess}    onSuccess   Callback on successful execution.
+ * @param  {Bluetooth~onError}      onError     Callback on failed execution.
  */
 Bluetooth.prototype.enable = function(onSuccess, onError) 
 {
@@ -80,8 +89,8 @@ Bluetooth.prototype.enable = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess 	Callback on successful execution.
- * @param  {Bluetooth~onError} 		onError 	Callback on failed execution.
+ * @param  {Bluetooth~onSuccess}    onSuccess   Callback on successful execution.
+ * @param  {Bluetooth~onError}      onError     Callback on failed execution.
  */
 Bluetooth.prototype.disable = function(onSuccess, onError) 
 {
@@ -93,21 +102,21 @@ Bluetooth.prototype.disable = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onResult} onSuccess 	Callback on successful execution.
- * @param  {Bluetooth~onError} 	onError 	Callback on failed execution.	
+ * @param  {Bluetooth~onResult} onSuccess   Callback on successful execution.
+ * @param  {Bluetooth~onError}  onError     Callback on failed execution.   
  */
 Bluetooth.prototype.isDiscovering = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "isDiscovering", []);
+    exec(onSuccess, onError, "Bluetooth", "isDiscovering", []);
 }
 
 /**
  * Represents a BluetoothDevice with name and address.
  *
- * @typedef		Bluetooth~BluetoothDevice
- * @type 		{object}
+ * @typedef     Bluetooth~BluetoothDevice
+ * @type        {object}
  * 
- * @property  {string}  name 	 Name of the device.
+ * @property  {string}  name     Name of the device.
  * @property  {string}  address  Hardware address of the device.
  */
 
@@ -124,38 +133,38 @@ Bluetooth.prototype.isDiscovering = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onDeviceDiscovered} 	onDeviceDiscovered 		Invoked when a device is found.
- * @param  {Bluetooth~onSuccess} 			onDiscoveryFinished 	Invoked when discovery finishes succesfully.
- * @param  {Bluetooth~onError} 				onError 				Invoked if there is an error, or the discovery finishes prematurely.
+ * @param  {Bluetooth~onDeviceDiscovered}   onDeviceDiscovered      Invoked when a device is found.
+ * @param  {Bluetooth~onSuccess}            onDiscoveryFinished     Invoked when discovery finishes succesfully.
+ * @param  {Bluetooth~onError}              onError                 Invoked if there is an error, or the discovery finishes prematurely.
  */
 Bluetooth.prototype.startDiscovery = function(onDeviceDiscovered, onDiscoveryFinished, onError) 
 {
-	var timeout = function()
-	{
-		onError({ code: 9001, message: "Request timed out" });
-	}
+    var timeout = function()
+    {
+        onError({ code: 9001, message: "Request timed out" });
+    }
 
-	this.timeout = setTimeout(timeout, 15000);
+    this.timeout = setTimeout(timeout, 15000);
 
-	var self = this;
+    var self = this;
     exec(function(result)
-	{
-		if(result === false)
-		{
-			clearTimeout(self.timeout);
-			onDiscoveryFinished();
-		}
-		else
-		{
-			onDeviceDiscovered(result);
-		}
-	}, 
-	function(error)
-	{	
-		clearTimeout(self.timeout);
-		onError(error);
-	}, 
-	"Bluetooth", "startDiscovery", []);
+    {
+        if(result === false)
+        {
+            clearTimeout(self.timeout);
+            onDiscoveryFinished();
+        }
+        else
+        {
+            onDeviceDiscovered(result);
+        }
+    }, 
+    function(error)
+    {   
+        clearTimeout(self.timeout);
+        onError(error);
+    }, 
+    "Bluetooth", "startDiscovery", []);
 }
 
 /**
@@ -163,12 +172,12 @@ Bluetooth.prototype.startDiscovery = function(onDeviceDiscovered, onDiscoveryFin
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess 	Invoked on succesful completion.
- * @param  {Bluetooth~onError} 		onError 	Invoked if there is an error (for example there is no discovery in progress).
+ * @param  {Bluetooth~onSuccess}    onSuccess   Invoked on succesful completion.
+ * @param  {Bluetooth~onError}      onError     Invoked if there is an error (for example there is no discovery in progress).
  */
 Bluetooth.prototype.stopDiscovery = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "stopDiscovery", []);
+    exec(onSuccess, onError, "Bluetooth", "stopDiscovery", []);
 }
 
 /**
@@ -176,13 +185,13 @@ Bluetooth.prototype.stopDiscovery = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onResult} onSuccess 	Invoked with a flag indicating if the device is paired, passed in as a parameter.
- * @param  {Bluetooth~onError} 	onError 	Invoked if there is an error (for example wrong address).
- * @param  {string} 			address		Address of the device to check against.
+ * @param  {Bluetooth~onResult} onSuccess   Invoked with a flag indicating if the device is paired, passed in as a parameter.
+ * @param  {Bluetooth~onError}  onError     Invoked if there is an error (for example wrong address).
+ * @param  {string}             address     Address of the device to check against.
  */
 Bluetooth.prototype.isPaired = function(onSuccess, onError, address)
 {
-	exec(onSuccess, onError, "Bluetooth", "isPaired", [address]);
+    exec(onSuccess, onError, "Bluetooth", "isPaired", [address]);
 }
 
 /**
@@ -198,13 +207,13 @@ Bluetooth.prototype.isPaired = function(onSuccess, onError, address)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onDevicePaired} 	onSuccess 	Invoked when the device at given address is paired.
- * @param  {Bluetooth~onError} 			onError 	Invoked if there is an error (for example wrong address).
- * @param  {string} 					address 	Address of the device to pair with.
+ * @param  {Bluetooth~onDevicePaired}   onSuccess   Invoked when the device at given address is paired.
+ * @param  {Bluetooth~onError}          onError     Invoked if there is an error (for example wrong address).
+ * @param  {string}                     address     Address of the device to pair with.
  */
 Bluetooth.prototype.pair = function(onSuccess, onError, address)
 {
-	exec(onSuccess, onError, "Bluetooth", "pair", [address]);
+    exec(onSuccess, onError, "Bluetooth", "pair", [address]);
 }
 
 /**
@@ -212,13 +221,13 @@ Bluetooth.prototype.pair = function(onSuccess, onError, address)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess 	Invoked when unpairing was succesful.
- * @param  {Bluetooth~onError} 		onError 	Invoked when there is an error (for example the devices are not paired).
- * @param  {string} 				address 	The address of the device you wish to unpair with.
+ * @param  {Bluetooth~onSuccess}    onSuccess   Invoked when unpairing was succesful.
+ * @param  {Bluetooth~onError}      onError     Invoked when there is an error (for example the devices are not paired).
+ * @param  {string}                 address     The address of the device you wish to unpair with.
  */
 Bluetooth.prototype.unpair = function(onSuccess, onError, address)
 {
-	exec(onSuccess, onError, "Bluetooth", "unpair", [address]);
+    exec(onSuccess, onError, "Bluetooth", "unpair", [address]);
 }
 
 /**
@@ -234,12 +243,12 @@ Bluetooth.prototype.unpair = function(onSuccess, onError, address)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onDevicesRetrieved} 	onSuccess 	Invoked when the paired devices are retrieved.
- * @param  {Bluetooth~onError} 				onError 	Invoked if there is an error retrieving the paired devices.
+ * @param  {Bluetooth~onDevicesRetrieved}   onSuccess   Invoked when the paired devices are retrieved.
+ * @param  {Bluetooth~onError}              onError     Invoked if there is an error retrieving the paired devices.
  */
 Bluetooth.prototype.getPaired = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "getPaired", []);
+    exec(onSuccess, onError, "Bluetooth", "getPaired", []);
 }
 
 /**
@@ -247,10 +256,10 @@ Bluetooth.prototype.getPaired = function(onSuccess, onError)
  *
  * @callback Bluetooth~onUuidsRetrieved
  *
- * @param  {object}  	device 			Information of the device, including the UUIDs.
- * @param  {string}  	device.name 	Name of the device.
- * @param  {string}  	device.address 	Hardware address of the device.
- * @param  {string[]} 	device.uuids 	UUIDs fetched from the device.
+ * @param  {object}     device          Information of the device, including the UUIDs.
+ * @param  {string}     device.name     Name of the device.
+ * @param  {string}     device.address  Hardware address of the device.
+ * @param  {string[]}   device.uuids    UUIDs fetched from the device.
  */
 
 /**
@@ -258,13 +267,13 @@ Bluetooth.prototype.getPaired = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onUuidsRetrieved} onSuccess 	Invoked when UUIDs are fetched.
- * @param  {Bluetooth~onError}	 		onError 	Invoked if there is an error (for example invalid address).
- * @param  {string} 					address 	Address of the device you wish to perform the query on.
+ * @param  {Bluetooth~onUuidsRetrieved} onSuccess   Invoked when UUIDs are fetched.
+ * @param  {Bluetooth~onError}          onError     Invoked if there is an error (for example invalid address).
+ * @param  {string}                     address     Address of the device you wish to perform the query on.
  */
 Bluetooth.prototype.getUuids = function(onSuccess, onError, address)
 {
-	exec(onSuccess, onError, "Bluetooth", "getUuids", [address]);
+    exec(onSuccess, onError, "Bluetooth", "getUuids", [address]);
 }
 
 /**
@@ -273,12 +282,12 @@ Bluetooth.prototype.getUuids = function(onSuccess, onError, address)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onResult} 	onSuccess 	Invoked with a flag indicating whether there is a connection or not.
- * @param  {Bluetooth~onError} 		onError 	Invoked if there is an error.
+ * @param  {Bluetooth~onResult}     onSuccess   Invoked with a flag indicating whether there is a connection or not.
+ * @param  {Bluetooth~onError}      onError     Invoked if there is an error.
  */
 Bluetooth.prototype.isConnected = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "isConnected", []);
+    exec(onSuccess, onError, "Bluetooth", "isConnected", []);
 }
 
 /**
@@ -289,14 +298,14 @@ Bluetooth.prototype.isConnected = function(onSuccess, onError)
  * @memberOf Bluetooth
  * 
  * @param  {Bluetooth~onResult} onSuccess  Invoked with a flag indicating whether the connection is managed or not.
- * @param  {Bluetooth~onError} 	onError    Invoked when there is an error. 
+ * @param  {Bluetooth~onError}  onError    Invoked when there is an error. 
  *
  * @see Bluetooth~onDataRead
  * @see write
  */
 Bluetooth.prototype.isConnectionManaged = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "isConnectionManaged", []);
+    exec(onSuccess, onError, "Bluetooth", "isConnectionManaged", []);
 }
 
 /**
@@ -304,18 +313,18 @@ Bluetooth.prototype.isConnectionManaged = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess  		Invoked when the connection is established. 
- * @param  {Bluetooth~onError} 		onError    		Invoked if there is an error while connecting (for example invalid address).
- * @param  {json} 					opts 	   		Options for the connection.
- * @param  {string}     			opts.address 	Target address.
- * @param  {string}     			opts.uuid 		Usually the target listens using some UUID, this is that UUID.
- * @param  {string}					[opts.conn] 	Type of connection, Secure by default.
+ * @param  {Bluetooth~onSuccess}    onSuccess       Invoked when the connection is established. 
+ * @param  {Bluetooth~onError}      onError         Invoked if there is an error while connecting (for example invalid address).
+ * @param  {json}                   opts            Options for the connection.
+ * @param  {string}                 opts.address    Target address.
+ * @param  {string}                 opts.uuid       Usually the target listens using some UUID, this is that UUID.
+ * @param  {string}                 [opts.conn]     Type of connection, Secure by default.
  */
 Bluetooth.prototype.connect = function(onSuccess, onError, opts)
 {
-	var conn = (typeof opts.conn === "undefined") ? "Secure" : opts.conn;
-	
-	exec(onSuccess, onError, "Bluetooth", "connect", [opts.address, opts.uuid, conn]);
+    var conn = (typeof opts.conn === "undefined") ? "Secure" : opts.conn;
+    
+    exec(onSuccess, onError, "Bluetooth", "connect", [opts.address, opts.uuid, conn]);
 }
 
 /**
@@ -323,12 +332,12 @@ Bluetooth.prototype.connect = function(onSuccess, onError, opts)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess 	Invoked if disconnecting was succesful.
- * @param  {Bluetooth~onError} 		onError 	Invoked if there was an error disconnecting (for example no connection).
+ * @param  {Bluetooth~onSuccess}    onSuccess   Invoked if disconnecting was succesful.
+ * @param  {Bluetooth~onError}      onError     Invoked if there was an error disconnecting (for example no connection).
  */
 Bluetooth.prototype.disconnect = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "disconnect", []);
+    exec(onSuccess, onError, "Bluetooth", "disconnect", []);
 }
 
 /**
@@ -344,14 +353,14 @@ Bluetooth.prototype.disconnect = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onDataRead} 	onDataRead 	Invoked when data is received from the managed connection.
- * @param  {Bluetooth~onError} 		onError 	Invoked if there is an error with the managed connection (connection lost, error reading data).
+ * @param  {Bluetooth~onDataRead}   onDataRead  Invoked when data is received from the managed connection.
+ * @param  {Bluetooth~onError}      onError     Invoked if there is an error with the managed connection (connection lost, error reading data).
  *
  * @see stopConnectionManager
  */
 Bluetooth.prototype.startConnectionManager = function(onDataRead, onError)
 {
-	exec(onDataRead, onError, "Bluetooth", "startConnectionManager", []);
+    exec(onDataRead, onError, "Bluetooth", "startConnectionManager", []);
 }
 
 /**
@@ -360,12 +369,12 @@ Bluetooth.prototype.startConnectionManager = function(onDataRead, onError)
  *
  * @memberOf Bluetooth
  * 
- * @param  {Bluetooth~onSuccess} 	onSuccess 	Invoked if stopping the managed connection was succesful.
- * @param  {Bluetooth~onError} 		onError 	Invoked if there was an error stopping the managed connection.
+ * @param  {Bluetooth~onSuccess}    onSuccess   Invoked if stopping the managed connection was succesful.
+ * @param  {Bluetooth~onError}      onError     Invoked if there was an error stopping the managed connection.
  */
 Bluetooth.prototype.stopConnectionManager = function(onSuccess, onError)
 {
-	exec(onSuccess, onError, "Bluetooth", "stopConnectionManager", []);
+    exec(onSuccess, onError, "Bluetooth", "stopConnectionManager", []);
 }
 
 /**
@@ -373,17 +382,17 @@ Bluetooth.prototype.stopConnectionManager = function(onSuccess, onError)
  *
  * @memberOf Bluetooth
  *
- * @param  {Bluetooth~onSuccess}  	onSuccess 	Invoked if writing was succesful.
- * @param  {Bluetooth~onError} 		onError 	Invoked if there was an error writing (for example there is no managed connection).
- * @param  {?} 						data 		The data to be written to the managed connection.
+ * @param  {Bluetooth~onSuccess}    onSuccess   Invoked if writing was succesful.
+ * @param  {Bluetooth~onError}      onError     Invoked if there was an error writing (for example there is no managed connection).
+ * @param  {?}                      data        The data to be written to the managed connection.
  */
 Bluetooth.prototype.write = function(onSuccess, onError, data, encoding, forceString)
 {
-	encoding = encoding || "UTF-8";
-	forceString = forceString || false;
+    encoding = encoding || "UTF-8";
+    forceString = forceString || false;
 
-	exec(onSuccess, onError, "Bluetooth", "write", [data, encoding, forceString]);
+    exec(onSuccess, onError, "Bluetooth", "write", [data, encoding, forceString]);
 }
 
-var bluetooth 	= new Bluetooth();
-module.exports 	= bluetooth;
+var bluetooth   = new Bluetooth();
+module.exports  = bluetooth;
