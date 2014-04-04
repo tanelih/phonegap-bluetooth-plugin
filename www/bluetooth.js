@@ -136,22 +136,30 @@ Bluetooth.prototype.isDiscovering = function(onSuccess, onError)
  * @param  {Bluetooth~onDeviceDiscovered}   onDeviceDiscovered      Invoked when a device is found.
  * @param  {Bluetooth~onSuccess}            onDiscoveryFinished     Invoked when discovery finishes succesfully.
  * @param  {Bluetooth~onError}              onError                 Invoked if there is an error, or the discovery finishes prematurely.
+ * @param  {object}                         opts                    Optional options
+ * @param  {number}                         opts.timeout            How many millis until the timeout error is invoked
  */
-Bluetooth.prototype.startDiscovery = function(onDeviceDiscovered, onDiscoveryFinished, onError)
+Bluetooth.prototype.startDiscovery = function(onDeviceDiscovered, onDiscoveryFinished, onError, opts)
 {
-    var timeout = function()
+    opts = opts || {};
+    if(opts.timeout)
     {
-        onError({ code: 9001, message: "Request timed out" });
+        var timeout = function()
+        {
+            onError({ code: 9001, message: "Request timed out" });
+        }
+        this.timeout = setTimeout(timeout, opts.timeout);
     }
-
-    this.timeout = setTimeout(timeout, 15000);
 
     var self = this;
     exec(function(result)
     {
         if(result === false)
         {
-            clearTimeout(self.timeout);
+            if(self.timeout)
+            {
+                clearTimeout(self.timeout);
+            }
             onDiscoveryFinished();
         }
         else
@@ -161,7 +169,10 @@ Bluetooth.prototype.startDiscovery = function(onDeviceDiscovered, onDiscoveryFin
     },
     function(error)
     {
-        clearTimeout(self.timeout);
+        if(self.timeout)
+        {
+            clearTimeout(self.timeout);
+        }
         onError(error);
     },
     "Bluetooth", "startDiscovery", []);
