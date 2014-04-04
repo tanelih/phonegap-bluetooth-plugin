@@ -1,0 +1,4264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Bluetooth</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: Bluetooth</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    Bluetooth
+    </h2>
+    
+        <div class="class-description">BluetoothPlugin for cordova 3.0.0+ (PhoneGap).</div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Bluetooth"><span class="type-signature"></span>new Bluetooth<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new instance of Bluetooth(Plugin).
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="connect"><span class="type-signature"></span>connect<span class="signature">(onSuccess, onError, opts)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attempt to connect with another device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when the connection is established.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error while connecting (for example invalid address).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">json</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Options for the connection.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Target address.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>uuid</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Usually the target listens using some UUID, this is that UUID.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>conn</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Type of connection, Secure by default.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line323">line 323</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="disable"><span class="type-signature"></span>disable<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Disable Bluetooth on the device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on successful execution.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on failed execution.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="disconnect"><span class="type-signature"></span>disconnect<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Disconnect from any current connection.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if disconnecting was succesful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there was an error disconnecting (for example no connection).</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line338">line 338</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="enable"><span class="type-signature"></span>enable<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Enable Bluetooth on the device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on successful execution.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on failed execution.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line82">line 82</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getPaired"><span class="type-signature"></span>getPaired<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Get the devices paired with this device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onDevicesRetrieved">Bluetooth~onDevicesRetrieved</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when the paired devices are retrieved.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error retrieving the paired devices.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line249">line 249</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getUuids"><span class="type-signature"></span>getUuids<span class="signature">(onSuccess, onError, address)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Get the UUIDs of the device at given address.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onUuidsRetrieved">Bluetooth~onUuidsRetrieved</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when UUIDs are fetched.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error (for example invalid address).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Address of the device you wish to perform the query on.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line274">line 274</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isConnected"><span class="type-signature"></span>isConnected<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if there is a connection. Please note this does not indicate
+whether the connection is managed or not.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onResult">Bluetooth~onResult</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked with a flag indicating whether there is a connection or not.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line288">line 288</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isConnectionManaged"><span class="type-signature"></span>isConnectionManaged<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if there is a connection and that it is currently managed.
+This means that you will receive callbacks with read data, and
+that you can write to the connection.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onResult">Bluetooth~onResult</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked with a flag indicating whether the connection is managed or not.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when there is an error.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line306">line 306</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="Bluetooth.html#onDataRead">Bluetooth~onDataRead</a></li>
+        
+            <li>write</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isDiscovering"><span class="type-signature"></span>isDiscovering<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if the device is in the process of discovering devices.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onResult">Bluetooth~onResult</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on successful execution.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on failed execution.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isEnabled"><span class="type-signature"></span>isEnabled<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if the device has Bluetooth enabled.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onResult">Bluetooth~onResult</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on successful execution.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback on failed execution.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isPaired"><span class="type-signature"></span>isPaired<span class="signature">(onSuccess, onError, address)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if the device at given address is paired with this device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onResult">Bluetooth~onResult</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked with a flag indicating if the device is paired, passed in as a parameter.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error (for example wrong address).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Address of the device to check against.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line192">line 192</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isSupported"><span class="type-signature"></span>isSupported<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Check if the API is supported on this platform. Requires the
+cordova-plugin-device to function on PhoneGap 3.0.0 onwards.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pair"><span class="type-signature"></span>pair<span class="signature">(onSuccess, onError, address)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attempt to pair with the device at given address.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onDevicePaired">Bluetooth~onDevicePaired</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when the device at given address is paired.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error (for example wrong address).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Address of the device to pair with.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line214">line 214</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="startConnectionManager"><span class="type-signature"></span>startConnectionManager<span class="signature">(onDataRead, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Start managing the connection, allowing reading and writing.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onDataRead</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onDataRead">Bluetooth~onDataRead</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when data is received from the managed connection.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error with the managed connection (connection lost, error reading data).</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line361">line 361</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>stopConnectionManager</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="startDiscovery"><span class="type-signature"></span>startDiscovery<span class="signature">(onDeviceDiscovered, onDiscoveryFinished, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Start the device discovery process.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onDeviceDiscovered</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onDeviceDiscovered">Bluetooth~onDeviceDiscovered</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when a device is found.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onDiscoveryFinished</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when discovery finishes succesfully.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error, or the discovery finishes prematurely.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line140">line 140</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="stopConnectionManager"><span class="type-signature"></span>stopConnectionManager<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Stop the managed connection. Please note that this does not invoke disconnect,
+so you can reinvoke startConnectionManager without having to invoke connect first.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if stopping the managed connection was succesful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there was an error stopping the managed connection.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line375">line 375</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="stopDiscovery"><span class="type-signature"></span>stopDiscovery<span class="signature">(onSuccess, onError)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Stop the device discovery process.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked on succesful completion.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there is an error (for example there is no discovery in progress).</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line178">line 178</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unpair"><span class="type-signature"></span>unpair<span class="signature">(onSuccess, onError, address)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Unpair with the device at given address.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when unpairing was succesful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked when there is an error (for example the devices are not paired).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The address of the device you wish to unpair with.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line228">line 228</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="write"><span class="type-signature"></span>write<span class="signature">(onSuccess, onError, data)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Write to the managed connection.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onSuccess">Bluetooth~onSuccess</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if writing was succesful.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#onError">Bluetooth~onError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Invoked if there was an error writing (for example there is no managed connection).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">?</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The data to be written to the managed connection.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line389">line 389</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+        
+        <dl>
+                
+<dt>
+    <h4 class="name" id="BluetoothDevice">BluetoothDevice</h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents a BluetoothDevice with name and address.
+    </div>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of the device.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Hardware address of the device.</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onDataRead"><span class="type-signature"></span>onDataRead<span class="signature">(data)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Callback for a managed connection to send read data.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The data received from the managed connection.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line343">line 343</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onDeviceDiscovered"><span class="type-signature"></span>onDeviceDiscovered<span class="signature">(device)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Invoked when a new device is found.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>device</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#BluetoothDevice">Bluetooth~BluetoothDevice</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The discovered device.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line115">line 115</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onDevicePaired"><span class="type-signature"></span>onDevicePaired<span class="signature">(device)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Invoked when a device is paired with this device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>device</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Bluetooth.html#BluetoothDevice">Bluetooth~BluetoothDevice</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The device which this device was paired with.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line197">line 197</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onDevicesRetrieved"><span class="type-signature"></span>onDevicesRetrieved<span class="signature">(devices)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Invoked when paired devices are succesfully retrieved.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>devices</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;<a href="Bluetooth.html#BluetoothDevice">Bluetooth~BluetoothDevice</a>></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The paired devices.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line233">line 233</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onError"><span class="type-signature"></span>onError<span class="signature">(error)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Generic error callback for the Bluetooth API.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>error</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The error object that contains information on what's what.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The error code.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The error message.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onResult"><span class="type-signature"></span>onResult<span class="signature">(isTrue)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Generic Success callback that takes a boolean flag as parameter. Is often
+used in conjunction with methods like isConnected and so on.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>isTrue</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Flag indicating the result.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line39">line 39</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onSuccess"><span class="type-signature"></span>onSuccess<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Generic success callback for the Bluetooth API. Indicates only that the
+action was executed succesfully.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="onUuidsRetrieved"><span class="type-signature"></span>onUuidsRetrieved<span class="signature">(device)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Callback for retrieving UUIDs of a given device.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>device</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Information of the device, including the UUIDs.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Name of the device.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Hardware address of the device.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>uuids</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string[]</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">UUIDs fetched from the device.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bluetooth.js.html">bluetooth.js</a>, <a href="bluetooth.js.html#line254">line 254</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+            </dl>
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Bluetooth.html">Bluetooth</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Fri Apr 04 2014 09:09:26 GMT+0300 (EEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

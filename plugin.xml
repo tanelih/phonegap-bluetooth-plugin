@@ -15,18 +15,18 @@
 	</engines>
 
 	<platform name="android">
-		
+
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="Bluetooth">
 				<param name="android-package" value="org.apache.cordova.bluetooth.BluetoothPlugin" />
 			</feature>
 		</config-file>
-		
+
 		<config-file target="AndroidManifest.xml" parent="/manifest">
     		<uses-permission android:name="android.permission.BLUETOOTH" />
     		<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-		</config-file>	
-		
+		</config-file>
+
 		<js-module src="www/bluetooth.js" name="bluetooth">
 			<clobbers target="bluetooth" />
 		</js-module>

@@ -1,0 +1,19 @@
+{
+  "name": "phonegap-bluetooth-plugin",
+  "version": "0.9.1",
+  "description": "Simple access to Android Bluetooth API for PhoneGap.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanelih/phonegap-bluetooth-plugin.git"
+  },
+  "author": "tanelih",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tanelih/phonegap-bluetooth-plugin/issues"
+  },
+  "homepage": "https://github.com/tanelih/phonegap-bluetooth-plugin",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-jsdoc": "^0.5.4"
+  }
+}
