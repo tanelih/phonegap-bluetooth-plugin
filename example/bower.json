@@ -1,0 +1,7 @@
+{
+  "name": "bluetooth-example",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tanelih/phonegap-bluetooth-plugin",
+  "description": "Example on how to use Bluetooth Plugin",
+  "private": true
+}

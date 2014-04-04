@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
 
+	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-jsdoc');
 
 	grunt.initConfig({
