@@ -3,5 +3,11 @@
   "version": "0.0.0",
   "homepage": "https://github.com/tanelih/phonegap-bluetooth-plugin",
   "description": "Example on how to use Bluetooth Plugin",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "bootstrap": "~3.1.1",
+    "underscore": "~1.6.0",
+    "backbone": "~1.1.2"
+  }
 }
