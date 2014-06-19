@@ -2,11 +2,11 @@ package org.apache.cordova.bluetooth;
 
 /**
  * Container class for different error codes for Bluetooth.
- * These are the codes passed to the JavaScript API's onError 
+ * These are the codes passed to the JavaScript API's onError
  * callback under <b>error.code</b>.
- * 
+ *
  */
-public class BluetoothError 
+public class BluetoothError
 {
 	public static final int ERR_UNKNOWN							= 0;
 	public static final int ERR_DISCOVERY_CANCELED 				= 1;

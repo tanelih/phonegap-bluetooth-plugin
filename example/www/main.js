@@ -67,18 +67,21 @@ var DeviceView = Backbone.View.extend({
 		}
 
 		var gotUuids = function(device) {
+			console.log('got UUID\'s for device', device);
 			var onConnection = function() {
+				console.log('got connection');
 				self.model.set({
 					isConnected: true
 				});
 
 				var onConnectionLost = function() {
+					console.log('lost connection');
 					self.model.set({
 						isConnected: false
 					});
 					onFail();
 				}
-
+				console.log('output data to console...');
 				window.bluetooth.startConnectionManager(
 					console.log, onConnectionLost);
 			}
@@ -96,6 +99,7 @@ var DeviceView = Backbone.View.extend({
 		var self = this;
 
 		var onDisconnected = function() {
+			console.log('disconnected');
 			self.model.set({
 				isConnected: false
 			});
@@ -136,6 +140,8 @@ var onDeviceReady = function() {
 	});
 
 	var onBluetoothStateChanged = function() {
+
+		console.log('state changed', Bluetooth.get('state'));
 
 		switch(Bluetooth.get('state')) {
 			case BluetoothState.Off:
@@ -178,6 +184,7 @@ var onDeviceReady = function() {
 		});
 
 		var onBluetoothEnabled = function() {
+			console.log('bluetooth enabled');
 			Bluetooth.set({
 				state: BluetoothState.Ready
 			});
@@ -192,6 +199,7 @@ var onDeviceReady = function() {
 		});
 
 		var onBluetoothDisabled = function() {
+			console.log('bluetooth disabled');
 			Bluetooth.set({
 				state: BluetoothState.Off
 			});
@@ -201,15 +209,18 @@ var onDeviceReady = function() {
 	}
 
 	var onDiscover = function() {
+		console.log('starting discovery...');
 		Bluetooth.set({
 			state: BluetoothState.Busy
 		});
 
 		var onDeviceDiscovered = function(device) {
+			console.log('found device', device);
 			devices.collection.add(new Device(device));
 		}
 
 		var onDiscoveryFinished = function() {
+			console.log('discovery finished');
 			Bluetooth.set({
 				state: BluetoothState.Ready
 			});

@@ -366,12 +366,13 @@ Bluetooth.prototype.disconnect = function(onSuccess, onError)
  *
  * @param  {Bluetooth~onDataRead}   onDataRead  Invoked when data is received from the managed connection.
  * @param  {Bluetooth~onError}      onError     Invoked if there is an error with the managed connection (connection lost, error reading data).
+ * @param  {string}                 encoding    Encoding the data is returned with. Defaults to UTF-8.
  *
  * @see stopConnectionManager
  */
-Bluetooth.prototype.startConnectionManager = function(onDataRead, onError)
+Bluetooth.prototype.startConnectionManager = function(onDataRead, onError, encoding)
 {
-    exec(onDataRead, onError, "Bluetooth", "startConnectionManager", []);
+    exec(onDataRead, onError, "Bluetooth", "startConnectionManager", [encoding || "UTF-8"]);
 }
 
 /**
