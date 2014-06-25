@@ -640,7 +640,7 @@ public class BluetoothPlugin extends CordovaPlugin
 		{
 			try
 			{
-				_encoding = Charset.forName(args.toString(0));
+				_encoding = Charset.forName(args.getString(0));
 
 				_bluetooth.startConnectionManager();
 				_ioCallback = callbackCtx;
