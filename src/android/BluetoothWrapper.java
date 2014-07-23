@@ -455,10 +455,7 @@ public class BluetoothWrapper
 	{
 		if(_socket != null)
 		{
-			synchronized(_socket)
-			{
-				return _socket.isConnected();
-			}
+			return true;
 		}
 		return false;
 	}
@@ -556,6 +553,7 @@ public class BluetoothWrapper
 					synchronized(_socket)
 					{
 						_socket.close();
+                        _socket = null;
 					}
 				}
 			}
@@ -582,10 +580,6 @@ public class BluetoothWrapper
 			if(_socket == null)
 			{
 				throw new Exception("There is no socket.");
-			}
-			else if(!_socket.isConnected())
-			{
-				throw new Exception("Socket has no active connection.");
 			}
 			else
 			{
