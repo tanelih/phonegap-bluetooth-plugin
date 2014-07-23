@@ -7,6 +7,17 @@ Bluetooth plugin for PhoneGap (Android). Tested on versions 2.6.0 and 3.0.0.
 This plugin was created as part of an EU funded (Rural Development Programme for
 Mainland Finland 2007-2013) [project](http://blogit.jamk.fi/metsaapuilta/en/).
 
+Read this first!
+----------------
+I'm currently in a situation where I do not have any equipment to test this plugin on, 
+or develop reliably. Due to the situation, I am unable to maintain this plugin properly. 
+I will still respond to pull requests and issues if I can help with them.
+
+If you are interested in developing this plugin, fork it and make a pull request that 
+will mention your fork here in this `README`. If you have your own Bluetooth plugin, 
+that you would like to be mentioned here, make a pull request and add a link to it in 
+this `README`. Pull requests to fix stuff will always be accepted and appreciated!
+
 Installation
 ------------
 Check out PhoneGap CLI [docs](http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface)
