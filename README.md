@@ -10,13 +10,13 @@ Mainland Finland 2007-2013) [project](http://blogit.jamk.fi/metsaapuilta/en/).
 Read this first!
 ----------------
 I'm currently in a situation where I do not have any equipment to test this plugin on, 
-or develop reliably. Due to the situation, I am unable to maintain this plugin properly. 
+or develop reliably. Due to this situation, I am unable to maintain this plugin properly. 
 I will still respond to pull requests and issues if I can help with them.
 
 If you are interested in developing this plugin, fork it and make a pull request that 
 will mention your fork here in this `README`. If you have your own Bluetooth plugin, 
 that you would like to be mentioned here, make a pull request and add a link to it in 
-this `README`. Pull requests to fix stuff will always be accepted and appreciated!
+this `README`. Pull requests to fix and add stuff will always be appreciated!
 
 Installation
 ------------
