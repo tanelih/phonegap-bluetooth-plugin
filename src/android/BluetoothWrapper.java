@@ -553,6 +553,7 @@ public class BluetoothWrapper
 					synchronized(_socket)
 					{
 						_socket.close();
+                        _socket = null;
 					}
 				}
 			}
