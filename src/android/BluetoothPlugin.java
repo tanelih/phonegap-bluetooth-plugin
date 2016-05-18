@@ -71,6 +71,7 @@ public class BluetoothPlugin extends CordovaPlugin
 	 * Callback context for pairing devices.
 	 */
 	private CallbackContext _pairingCallback;
+	private String _pairingAddress;
 
 	/**
 	 * Callback context for fetching UUIDs.
@@ -429,11 +430,13 @@ public class BluetoothPlugin extends CordovaPlugin
 			{
 				String address = args.getString(0);
 				_bluetooth.createBond(address);
+				_pairingAddress = address;
 				_pairingCallback = callbackCtx;
 			}
 			catch(Exception e)
 			{
 				_pairingCallback = null;
+				_pairingAddress = null;
 				this.error(callbackCtx, e.getMessage(), BluetoothError.ERR_UNKNOWN);
 			}
 		}
@@ -856,21 +859,35 @@ public class BluetoothPlugin extends CordovaPlugin
 
 					try
 					{
-						String name 	= msg.getData().getString(BluetoothWrapper.DATA_DEVICE_NAME);
-						String address 	= msg.getData().getString(BluetoothWrapper.DATA_DEVICE_ADDRESS);
+						String address 		= msg.getData().getString(BluetoothWrapper.DATA_DEVICE_ADDRESS);
+						String name 		= msg.getData().getString(BluetoothWrapper.DATA_DEVICE_NAME);
+						String bondState 	= msg.getData().getString(BluetoothWrapper.DATA_DEVICE_BOND_STATE);
 
-						JSONObject bondedDevice = new JSONObject();
-						bondedDevice.put("name", name);
-						bondedDevice.put("address", address);
+						//Check if the address is of interest
+						if(_pairingAddress != null) {
+							if(_pairingAddress.compareToIgnoreCase(address) == 0) {
+								if(bondState.compareToIgnoreCase("NONE") == 0) {
+									//Requested pairing device is not paired
+									throw new Exception();
+								} else if(bondState.compareToIgnoreCase("BONDED") == 0) {
+									JSONObject bondedDevice = new JSONObject();
+									bondedDevice.put("name", name);
+									bondedDevice.put("address", address);
 
-						if(_pairingCallback != null)
-						{
-							_pairingCallback.success(bondedDevice);
-							_pairingCallback = null;
-						}
-						else
-						{
-							Log.e(LOG_TAG, "CallbackContext for pairing doesn't exist.");
+									if(_pairingCallback != null)
+									{
+										_pairingCallback.success(bondedDevice);
+										_pairingCallback = null;
+									}
+									else
+									{
+										Log.e(LOG_TAG, "CallbackContext for pairing doesn't exist.");
+									}
+								}
+							}
+						} else {
+							//No pairing address in filter
+							throw new Exception();
 						}
 					}
 					catch(Exception e)

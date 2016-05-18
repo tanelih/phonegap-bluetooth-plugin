@@ -61,6 +61,7 @@ public class BluetoothWrapper
 
 	public static final String DATA_DEVICE_ADDRESS 		= "DeviceAddress";
 	public static final String DATA_DEVICE_NAME			= "DeviceName";
+	public static final String DATA_DEVICE_BOND_STATE	= "BondState";
 	public static final String DATA_BYTES				= "Bytes";
 	public static final String DATA_BYTES_READ			= "BytesRead";
 	public static final String DATA_UUIDS				= "Uuids";
@@ -679,19 +680,26 @@ public class BluetoothWrapper
 				int bondState 			= intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, 0);
 				BluetoothDevice device 	= intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
 
+				String name 	= device.getName();
+				String address 	= device.getAddress();
+				Bundle bundle = new Bundle();
+				bundle.putString(DATA_DEVICE_NAME, name);
+				bundle.putString(DATA_DEVICE_ADDRESS, address);
 				if(bondState == BluetoothDevice.BOND_BONDED)
 				{
-					String name 	= device.getName();
-					String address 	= device.getAddress();
-
-					Bundle bundle = new Bundle();
-					bundle.putString(DATA_DEVICE_NAME, name);
-					bundle.putString(DATA_DEVICE_ADDRESS, address);
-
-					Message msg = _handler.obtainMessage(MSG_DEVICE_BONDED);
-					msg.setData(bundle);
-					msg.sendToTarget();
+					bundle.putString(DATA_DEVICE_BOND_STATE,"BONDED");
+				} 
+				else if(bondState == BluetoothDevice.BOND_BONDING)
+				{
+					bundle.putString(DATA_DEVICE_BOND_STATE,"BONDING");
 				}
+				else 
+				{
+					bundle.putString(DATA_DEVICE_BOND_STATE,"NONE");
+				}
+				Message msg = _handler.obtainMessage(MSG_DEVICE_BONDED);
+				msg.setData(bundle);
+				msg.sendToTarget();
 			}
 			else if(BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action))
 			{
