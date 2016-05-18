@@ -98,6 +98,7 @@ public class BluetoothPlugin extends CordovaPlugin
 	 * Encoding used to read incoming data.
 	 */
 	private Charset _encoding;
+	private String _encodingStr;
 
 	/**
 	 * Initialize the Plugin, Cordova handles this.
@@ -108,8 +109,8 @@ public class BluetoothPlugin extends CordovaPlugin
 	public void initialize(CordovaInterface cordova, CordovaWebView view)
 	{
 		super.initialize(cordova, view);
-
-		_encoding = Charset.forName("UTF-8");
+		_encodingStr = "UTF-8";
+		_encoding = Charset.forName(_encodingStr);
 		_wasDiscoveryCanceled = false;
 
 		_bluetooth = new BluetoothWrapper(cordova.getActivity().getBaseContext(), _handler);
@@ -643,7 +644,10 @@ public class BluetoothPlugin extends CordovaPlugin
 		{
 			try
 			{
-				_encoding = Charset.forName(args.getString(0));
+				_encodingStr = args.getString(0);
+				if(_encodingStr.compareToIgnoreCase("HEX") != 0) {
+					_encoding = Charset.forName(_encodingStr);
+				}
 
 				_bluetooth.startConnectionManager();
 				_ioCallback = callbackCtx;
@@ -707,7 +711,11 @@ public class BluetoothPlugin extends CordovaPlugin
 			if(forceString || data.getClass() == String.class)
 			{
 				String dataString = (String)data;
-				buffer = ByteBuffer.wrap(dataString.getBytes(encoding));
+				if(encoding.compareToIgnoreCase("HEX") == 0) {
+					buffer = hexStringToByteArray(dataString);
+				} else {
+					buffer = ByteBuffer.wrap(dataString.getBytes(encoding));
+				}
 			}
 			else if(data.getClass().equals(Integer.class))
 			{
@@ -742,6 +750,37 @@ public class BluetoothPlugin extends CordovaPlugin
 		{
 			this.error(callbackCtx, e.getMessage(), BluetoothError.ERR_UNKNOWN);
 		}
+	}
+
+    /**
+     * Convert a given string of hexadecimal numbers
+     * into a byte[] array where every 2 hex chars get packed into
+     * a single byte.
+     *
+     * E.g. "ffaa55" results in a 3 byte long byte array
+     *
+     * @param s
+     * @return
+     */
+    private ByteBuffer hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return ByteBuffer.wrap(data);
+    }
+
+	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
+	private String byteArrayToHexString(byte[] bytes) {
+		char[] hexChars = new char[bytes.length * 2];
+		for ( int j = 0; j < bytes.length; j++ ) {
+			int v = bytes[j] & 0xFF;
+			hexChars[j * 2] = hexArray[v >>> 4];
+			hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+		}
+		return new String(hexChars);
 	}
 
 	/**
@@ -976,10 +1015,18 @@ public class BluetoothPlugin extends CordovaPlugin
 					break;
 
 				case BluetoothWrapper.MSG_READ:
+					String data;
+					if(BluetoothPlugin.this._encodingStr.compareToIgnoreCase("HEX") == 0) 
+					{
+						data = byteArrayToHexString(msg.getData().getByteArray(BluetoothWrapper.DATA_BYTES));
+					} 
+					else 
+					{
+						data = new String(
+							msg.getData().getByteArray(BluetoothWrapper.DATA_BYTES),
+							BluetoothPlugin.this._encoding);
+					}
 
-					String data = new String(
-						msg.getData().getByteArray(BluetoothWrapper.DATA_BYTES),
-						BluetoothPlugin.this._encoding);
 
 					if(_ioCallback != null)
 					{
